@@ -9,7 +9,7 @@ use notes::models::NewNote;
 use diesel::{self, prelude::*};
 
 #[post("/notes/create")]
-async fn hello(data: web::Json<Note>) -> Result<String> {
+async fn create(data: web::Json<Note>) -> Result<String> {
     println!("Creating note {} (with id {})!", data.title, data.id);
     let conn = get_db_connection();
 

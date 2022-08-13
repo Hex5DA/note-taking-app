@@ -9,7 +9,7 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .service(
                 web::scope("/api")
-                    .service(hello)
+                    .service(create)
             )
     })
     .bind(("0.0.0.0", 8080))?
