@@ -4,3 +4,8 @@ I wanted to learn more about fullstack development and backend / frontedns in eg
 
 Dont judge my shitty code..
 
+Example /.env file:
+
+```.env
+DATABASE_URL="your_database_file.sqlite"
+```

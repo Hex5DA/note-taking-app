@@ -1,0 +1,6 @@
+CREATE TABLE note (
+    id INTEGER NOT NULL PRIMARY KEY,
+    title TEXT NOT NULL,
+    content TEXT NOT NULL,
+    starred BOOLEAN NOT NULL DEFAULT 0
+)

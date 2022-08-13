@@ -1,3 +1,11 @@
+# Frontend
 /frontend/node_modules
 /frontend/dist
+
+# Backend
+notes-database.sqlite
 /target
+.env
+
+# Miscellaneous
+.vscode/
