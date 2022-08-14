@@ -1,27 +1,58 @@
 <script lang="ts">
-  import Counter from '@/components/Counter.svelte'
+  import { onMount } from "svelte";
+
+  import Header from "@/components/Header.svelte";
+  import Footer from "@/components/Footer.svelte";
+  import Card from "./components/Card.svelte";
+
+  import type { Note } from "@/lib/types"
+
+  let url = "http://0.0.0.0:8080";
+  let notes: Note[] = [];
+
+  async function refresh() {
+    console.log("Fetching data!")
+    let response = await fetch(`${url}/api/notes`, { "method": "get" });
+    notes = await response.json()
+  }
+
+  onMount(() => refresh());
 </script>
 
 <main>
-  <h1>Note Taking App</h1>
-  <p>Reprehenderit esse sunt culpa eiusmod incididunt pariatur. Aliquip eu elit sint dolore dolore. Occaecat aliqua mollit labore culpa do culpa mollit non est ea fugiat Lorem nulla sint. Est ipsum occaecat sint ullamco exercitation eiusmod voluptate commodo et. Fugiat est aliqua eu irure eiusmod adipisicing nisi exercitation aliqua deserunt. Quis labore proident elit eu quis aute mollit adipisicing anim sit do Lorem.</p>
+  <Header/>
 
-  <Counter/>
+  <div id="notes-wrapper">
+    {#each notes as element}
+      <Card data={element}/>
+    {/each}
+  </div>
+
+  <Footer/>
 </main>
 
 <style lang="scss">
 
   :root {
-    font-family: Inter, sans-serif;
-    background-color: #14181c;
-    margin: 20px;
-
-    font-size: 40px;
-    color: white;
+    font-family: "Inter", sans-serif;
+    height: 100%;
   }
 
-  h1 {
-    text-align: center;
+  :global(body) {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+
+    background-color: #14181c;
+  }
+
+  #notes-wrapper {
+    display: grid;
+    padding: 20px;
+    gap: 20px;
+
+    grid-template-columns: repeat(6, calc(100% / 6));
+    grid-template-rows: repeat(3, calc(100% / 3));
   }
 
 </style>
