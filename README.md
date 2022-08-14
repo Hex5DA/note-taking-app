@@ -9,3 +9,13 @@ Example /.env file:
 ```.env
 DATABASE_URL="your_database_file.sqlite"
 ```
+
+Todo:
+
+- [ ] Creating notes
+- [ ] Retrieving notes
+- [ ] Updating notes
+- [ ] Deleting notes
+- [ ] Frontend intergration
+- [ ] Tags / filtering?
+
