@@ -1,16 +1,16 @@
+use diesel::{Queryable, Insertable, AsChangeset};
 use serde::{self, Deserialize, Serialize};
-use diesel::{Queryable, Insertable};
 
 use super::schema::note;
 
-#[derive(Deserialize)]
-#[derive(Queryable)]
-#[derive(Serialize)]
+#[derive(Queryable, AsChangeset)]
+#[derive(Deserialize, Serialize)]
+#[derive(Clone)]
+#[table_name="note"]
 pub struct Note {
     pub id: i32,
     pub title: String,
     pub content: String,
-    #[serde(default = "bool::default")]
     pub starred: bool,
 }
 
@@ -28,4 +28,13 @@ pub struct NewNote<'a> {
     pub title: &'a str,
     pub content: &'a str,
     pub starred: &'a bool,
+}
+
+#[derive(Deserialize)]
+#[derive(Serialize)]
+pub struct OptionalNote {
+    pub id: Option<i32>,
+    pub title: Option<String>,
+    pub content: Option<String>,
+    pub starred: Option<bool>,
 }

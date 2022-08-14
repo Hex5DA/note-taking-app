@@ -12,10 +12,11 @@ DATABASE_URL="your_database_file.sqlite"
 
 Todo:
 
-- [ ] Creating notes
-- [ ] Retrieving notes
-- [ ] Updating notes
-- [ ] Deleting notes
+- [X] Basic Actix setup
+- [X] Database intergration
+- [X] Creating notes
+- [X] Retrieving notes
+- [X] Updating notes
+- [X] Deleting notes
 - [ ] Frontend intergration
-- [ ] Tags / filtering?
-
+- [ ] Tags / filtering? (PostgreSQL)
