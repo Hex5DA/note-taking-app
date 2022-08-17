@@ -5,34 +5,25 @@
   import Footer from "@/components/Footer.svelte";
   import Card from "./components/Card.svelte";
 
-  import type { Note } from "@/lib/types"
+  import { fetchNotes } from "@/lib/utils.js";
 
-  let url = "http://0.0.0.0:8080";
-  let notes: Note[] = [];
-
-  async function refresh() {
-    console.log("Fetching data!")
-    let response = await fetch(`${url}/api/notes`, { "method": "get" });
-    notes = await response.json()
-  }
-
-  onMount(() => refresh());
+  let notes = [];
+  onMount(() => fetchNotes().then((result) => (notes = result)));
 </script>
 
 <main>
-  <Header/>
+  <Header />
 
   <div id="notes-wrapper">
     {#each notes as element}
-      <Card data={element}/>
+      <Card data={element} />
     {/each}
   </div>
 
-  <Footer/>
+  <Footer />
 </main>
 
 <style lang="scss">
-
   :root {
     font-family: "Inter", sans-serif;
     height: 100%;
@@ -54,5 +45,4 @@
     grid-template-columns: repeat(6, calc(100% / 6));
     grid-template-rows: repeat(3, calc(100% / 3));
   }
-
 </style>

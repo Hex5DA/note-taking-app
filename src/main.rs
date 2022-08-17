@@ -9,7 +9,10 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
             .wrap(
-                Cors::permissive() // <- Dont use this in production! (apparently)
+                Cors::permissive()
+                // Cors::permissive().allow_any_header().allow_any_method().allow_any_origin()
+                // <- Dont use this in production! (apparently)
+                // Cors::allow_any_header(self).
             )
             .service(
                 web::scope("/api")

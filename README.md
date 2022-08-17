@@ -4,6 +4,22 @@ I wanted to learn more about fullstack development and backend / frontedns in eg
 
 Dont judge my shitty code..
 
+Requirements:
+
+- Diesel CLI
+- Npm
+- Rust
+
+Running:
+
+1) Make a .env file similar to below (or set environment variables)
+2) `cd frontend && npm install`
+3) `npx vite serve`
+4) `cd ..`
+5) `disel setup`
+6) `diesel migration run`
+7) `cargo run`
+
 Example /.env file:
 
 ```.env
