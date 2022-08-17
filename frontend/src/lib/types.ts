@@ -1,11 +1,12 @@
 export interface Note {
-    id: number,
+    id?: number,
     title: string,
     content: string,
     starred: boolean
 }
 
 export interface OptionalNote {
+    id?: number,
     title?: string,
     content?: string,
     starred?: boolean

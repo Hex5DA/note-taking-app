@@ -13,22 +13,35 @@ export function format_description(description: string): string {
 
 export async function fetchNotes() {
   console.log("Fetching data!");
-  let response = await fetch(`${URL}/api/notes`, { method: "get" });
+  let response = await fetch(`${URL}/api/notes`, { method: "GET" });
   let notes: Note[] = await response.json();
   return notes;
 }
 
 export function updateNote(id: number, note: OptionalNote) {
-  let temp = fetch(`${URL}/api/notes/${id}`, {
-    method: "patch",
+  return fetch(`${URL}/api/notes/${id}`, {
+    method: "PATCH",
     body: JSON.stringify(note),
     headers: {
-        'Content-type': 'application/json; charset=UTF-8',
+      "Content-type": "application/json; charset=UTF-8",
     },
   })
     .then((response) => response.json())
     .then((json) => json);
+}
 
-  console.log(temp);
-  return temp;
+export function deleteNote(id: number) {
+  return fetch(`${URL}/api/notes/${id}`, { method: "DELETE" }).then(
+    (response) => response.ok
+  );
+}
+
+export function createNote(note: Note) {
+  return fetch(`${URL}/api/notes/create`, {
+    method: "POST",
+    body: JSON.stringify(note),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  }).then((response) => response.statusText);
 }

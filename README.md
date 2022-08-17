@@ -1,8 +1,8 @@
 # Note Taking App
 
-I wanted to learn more about fullstack development and backend / frontedns in egneral, so I thought I would start with a classic - the note taking app!
+I wanted to learn more about fullstack development and backend / frontends in general, so I thought I would start with a classic - the note taking app!
 
-Dont judge my shitty code..
+![demo photo](demo.png)
 
 Requirements:
 
@@ -34,5 +34,14 @@ Todo:
 - [X] Retrieving notes
 - [X] Updating notes
 - [X] Deleting notes
-- [ ] Frontend intergration
-- [ ] Tags / filtering? (PostgreSQL)
+- [X] Frontend intergration
+- [?] Tags / filtering (PostgreSQL)
+- [?] Serve files from the server
+
+Credits:
+
+- The code - moi
+- Moral support - Danub
+- Fixing my dumb mistake - [jub0bs](https://stackoverflow.com/a/73391188/17303382)
+- UI Inspiration - [Nikola Cvetkovski](https://medium.com/the-web-tub/making-a-simple-note-app-using-svelte-and-vite-27edfa91a591)
+- Tech stack inspiration - [nelsontkq](https://github.com/nelsontkq/actix_svelte_template)

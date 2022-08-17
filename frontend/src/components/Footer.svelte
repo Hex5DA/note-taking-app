@@ -3,6 +3,7 @@
         <p>This page was created for educational purposes.</p>
         <p>It is <a href="https://gitlab.com/onlyTr3v0r/note-taking-app" target="_blank">Open Source</a> and licensed with the <a href="https://unlicense.org/" target="_blank">Unlicense</a></p>
         <p>It was made by <a href="https://github.com/onlyTr3v0r" target="_blank">Trevor</a>, a member of <a href="https://github.com/DoubleFaceProgramming" target="_blank">Doubleface</a>.</p>
+        <p>All svgs are downloaded from <a href="https://www.svgrepo.com/" target="_blank">Svg Repo</a>.</p>
     </div>
 </footer>
 
@@ -22,7 +23,7 @@
     }
 
     p {
-        font-size: $height / 3 / 2;
+        font-size: $height / 4 / 2;
         color: white;
         line-height: normal - 6px;
         margin: 2px;

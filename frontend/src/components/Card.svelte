@@ -1,7 +1,10 @@
 <script lang="ts">
-  import { format_description, updateNote } from "@/lib/utils";
+  import { createEventDispatcher } from "svelte";
+
+  import { format_description, updateNote, deleteNote } from "@/lib/utils";
   import type { Note } from "@/lib/types";
 
+  import editPath from "@/assets/icons/edit.svg";
   import deletePath from "@/assets/icons/delete.svg";
   import starPath from "@/assets/icons/star.svg";
   import deleteHighlightedPath from "@/assets/icons/delete_highlighted.svg";
@@ -9,12 +12,18 @@
 
   export let data: Note;
 
+  let dispatch = createEventDispatcher();
   let delHovered: boolean;
 
   function changeStar() {
     data.starred = !data.starred;
 
-    updateNote(data.id, {starred: data.starred});
+    updateNote(data.id, { starred: data.starred });
+  }
+
+  function deleteSelf() {
+    deleteNote(data.id);
+    dispatch("delete", data.id);
   }
 </script>
 
@@ -25,10 +34,17 @@
     <div id="control-wrapper">
       <img
         class="control"
+        src={editPath}
+        on:click={() => dispatch("edit", data)}
+        alt="Edit icon"
+      />
+      <img
+        class="control"
         src={!delHovered ? deletePath : deleteHighlightedPath}
         alt="Delte icon"
         on:mouseenter={() => (delHovered = true)}
         on:mouseleave={() => (delHovered = false)}
+        on:click={deleteSelf}
       />
       <img
         class="control"
