@@ -14,7 +14,7 @@ Running:
 
 1) Make a .env file similar to below (or set environment variables)
 2) `cd frontend && npm install`
-3) `npx vite serve`
+3) `npx vite build`
 4) `cd ..`
 5) `disel setup`
 6) `diesel migration run`

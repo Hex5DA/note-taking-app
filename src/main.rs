@@ -19,6 +19,14 @@ async fn main() -> std::io::Result<()> {
                     .service(update_note)
                     .service(delete_note)
             )
+            .service(
+                actix_files::Files::new("/", "./frontend/dist")
+                    .index_file("index.html")
+                    .default_handler(
+                        actix_files::NamedFile::open("./frontend/dist/index.html")
+                            .expect("Index file does not exist.")
+                    )
+            )
     })
     .bind(("0.0.0.0", 8080))?
     .run()
